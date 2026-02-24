@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lag Snap</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="../assets/icon48.png" alt="Lag Snap" class="logo" />
+      <h1>Lag Snap</h1>
+    </header>
+
+    <button id="btn-optimize" class="btn-primary">Optimize Clipboard Image</button>
+
+    <div id="status" class="status" aria-live="polite"></div>
+
+    <details class="settings" id="settings-panel">
+      <summary>Settings</summary>
+      <div class="settings-grid">
+        <label for="max-dimension">Max dimension (px)</label>
+        <input
+          type="number"
+          id="max-dimension"
+          min="100"
+          max="8000"
+          step="100"
+          value="1600"
+        />
+
+        <label for="target-kb">Target max size (KB)</label>
+        <input
+          type="number"
+          id="target-kb"
+          min="10"
+          max="10000"
+          step="50"
+          value="900"
+        />
+
+        <label for="output-format">Output format</label>
+        <select id="output-format">
+          <option value="auto" selected>Auto (JPEG, PNG if transparent)</option>
+          <option value="jpeg">Force JPEG</option>
+          <option value="png">Force PNG</option>
+        </select>
+      </div>
+    </details>
+  </div>
+
+  <script src="../lib/optimize.js"></script>
+  <script src="../lib/clipboard.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

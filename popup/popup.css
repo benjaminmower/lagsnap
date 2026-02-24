@@ -1,0 +1,155 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  min-width: 300px;
+  max-width: 360px;
+}
+
+.container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #cba6f7;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 10px 16px;
+  background: #cba6f7;
+  color: #1e1e2e;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #b48edd;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status {
+  min-height: 60px;
+  padding: 10px 12px;
+  background: #181825;
+  border-radius: 8px;
+  border: 1px solid #313244;
+  font-size: 12px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #a6adc8;
+}
+
+.status.success {
+  border-color: #a6e3a1;
+  color: #a6e3a1;
+}
+
+.status.error {
+  border-color: #f38ba8;
+  color: #f38ba8;
+}
+
+.status.working {
+  border-color: #fab387;
+  color: #fab387;
+}
+
+.settings {
+  border: 1px solid #313244;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.settings > summary {
+  padding: 8px 12px;
+  cursor: pointer;
+  user-select: none;
+  background: #181825;
+  font-weight: 600;
+  color: #a6adc8;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.settings > summary::before {
+  content: '▶';
+  font-size: 9px;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.settings[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  padding: 12px;
+  background: #1e1e2e;
+  align-items: center;
+}
+
+.settings-grid label {
+  color: #a6adc8;
+  font-size: 12px;
+}
+
+.settings-grid input,
+.settings-grid select {
+  width: 100%;
+  padding: 5px 8px;
+  background: #181825;
+  border: 1px solid #45475a;
+  border-radius: 6px;
+  color: #cdd6f4;
+  font-size: 12px;
+}
+
+.settings-grid input:focus,
+.settings-grid select:focus {
+  outline: none;
+  border-color: #cba6f7;
+}
+
+.settings-grid select option {
+  background: #1e1e2e;
+}
