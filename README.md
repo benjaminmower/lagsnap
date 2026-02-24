@@ -82,17 +82,18 @@ lagsnap/
 - Resizing uses `createImageBitmap` + `OffscreenCanvas` (falls back to
   `HTMLCanvasElement`).
 - JPEG encoding loops from quality 0.92 down to 0.30 in steps of 0.08 until
-  the target KB is met.
+  the target KB is met (this limit applies to the intermediate JPEG blob).
 - The Clipboard API only accepts `image/png` for `ClipboardItem` writes in
   Chrome; optimized JPEG blobs are transparently re-encoded to PNG before
-  writing (the visual quality difference is negligible after JPEG compression).
+  writing. This PNG step is lossless in terms of visual quality but can increase
+  file size relative to the optimized JPEG, so the final clipboard PNG may exceed
+  the configured Target max size.
 - No external dependencies — vanilla JS, HTML, and CSS only.
 
 ---
 
 ## Permissions
 
-| Permission      | Reason                              |
-|-----------------|-------------------------------------|
-| `clipboardRead` | Read the source image from clipboard |
-| `clipboardWrite`| Write the optimized image back       |
+| Permission | Reason                                                    |
+|------------|-----------------------------------------------------------|
+| `storage`  | Persist user settings (max dimension, target KB, format)  |

@@ -3,10 +3,7 @@
   "name": "Lag Snap",
   "version": "1.0.0",
   "description": "Optimize clipboard images for pasting into chat apps.",
-  "permissions": [
-    "clipboardRead",
-    "clipboardWrite"
-  ],
+  "permissions": ["storage"],
   "action": {
     "default_popup": "popup/popup.html",
     "default_title": "Lag Snap",
